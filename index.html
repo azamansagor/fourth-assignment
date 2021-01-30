@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,39 +40,41 @@
             <h3>Book Ocean Time</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <input id="flying-from" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                <input id="flying-to" class="inp-style" type="text" name="" placeholder="New York, United States">
             </div>
             <div class="inputs">
                 <div class="input-group">
-                    <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                    <label for="">Departure</label>
+                    <input id="departure" class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
+                    <input id="return" class="inp-style" type="date" name="">
                 </div>
             </div>
-            <div class="input-group f-class">
+            <div class="input-group f-class flex-nowrap">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="first-class" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
-                <div class="plus-minus-btn">
-                    <p>+ -</p>
+                <div class="plus-minus-btn d-flex">
+                    <button class="btn btn-secondary plus-btn mx-1 mt-3">+</button>
+                    <button class="btn btn-secondary minus-btn mx-1 mt-3">-</button>
                 </div>
             </div>
             
-            <div class="input-group f-class">
+            <div class="input-group f-class flex-nowrap">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="economy-class" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
-                <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                <div class="plus-minus-btn d-flex">
+                    <button class="btn btn-secondary plus-btn mx-1 mt-3">+</button>
+                    <button class="btn btn-secondary minus-btn mx-1 mt-3">-</button>
                 </div>
             </div>
             <div class="calculations">
@@ -80,7 +83,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$<span id="subtotal">0</span></p>
                     </div>
                 </div>
 
@@ -89,7 +92,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$<span id="vat">0</span></p>
                     </div>
                 </div>
                 <hr>
@@ -98,14 +101,69 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$<span id="total">0</span></p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+
+            <button id="book-button" class="btn-style" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Book Now
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Booking Information</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>
+                                        <strong>Flying From:</strong>
+                                        <span id="booking-flying-from"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Flying To:</strong>
+                                        <span id="booking-flying-to"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Departure:</strong>
+                                        <span id="booking-departure"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Return:</strong>
+                                        <span id="booking-return"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Subtotal:</strong>
+                                        <span id="booking-subtotal"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Vat:</strong>
+                                        <span id="booking-vat"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Total:</strong>
+                                        <span id="booking-total"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
+    <!-- Essential scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
     <!--Thank You-->
 </body>
 
